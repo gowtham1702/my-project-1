@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Meridian — A Pen Worth the Ritual</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink-navy: #1B2430;
+    --ink-navy-deep: #131A24;
+    --paper: #F7F5F0;
+    --paper-dim: #EDEAE2;
+    --brass: #B08D57;
+    --brass-light: #D4B483;
+    --graphite: #2A2A28;
+    --burgundy: #6B2337;
+    --line: rgba(42,42,40,0.14);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--graphite);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  }
+
+  a, button { font-family: inherit; }
+
+  .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--brass);
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    background: radial-gradient(ellipse at top left, var(--ink-navy) 0%, var(--ink-navy-deep) 65%);
+    color: var(--paper);
+    min-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6vh 8vw 8vh;
+    position: relative;
+  }
+
+  .hero-inner {
+    max-width: 900px;
+  }
+
+  .hero .eyebrow { color: var(--brass-light); margin-bottom: 1.6rem; display: block; }
+
+  .signature-svg {
+    width: min(680px, 90vw);
+    height: auto;
+    margin-bottom: 1.2rem;
+  }
+
+  .signature-svg path {
+    fill: none;
+    stroke: var(--paper);
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 1400;
+    stroke-dashoffset: 1400;
+    animation: write-in 2.6s cubic-bezier(0.65, 0, 0.35, 1) 0.3s forwards;
+  }
+
+  .signature-svg .dot {
+    fill: var(--brass);
+    opacity: 0;
+    animation: dot-in 0.4s ease 2.7s forwards;
+  }
+
+  @keyframes write-in {
+    to { stroke-dashoffset: 0; }
+  }
+  @keyframes dot-in {
+    to { opacity: 1; }
+  }
+
+  .hero p.tagline {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(1.15rem, 2vw, 1.4rem);
+    color: var(--paper-dim);
+    max-width: 46ch;
+    margin: 0.6rem 0 2.4rem;
+  }
+
+  .cta-row { display: flex; align-items: center; gap: 1.6rem; flex-wrap: wrap; }
+
+  .btn-primary {
+    background: var(--brass);
+    color: var(--ink-navy-deep);
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.95rem 2.1rem;
+    border-radius: 2px;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(176,141,87,0.35); }
+  .btn-primary:focus-visible { outline: 3px solid var(--paper); outline-offset: 3px; }
+
+  .price-note {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--brass-light);
+  }
+
+  /* ---------- SHOWCASE ---------- */
+  .showcase {
+    padding: 9vh 8vw;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 6vw;
+    align-items: center;
+    background: var(--paper);
+  }
+
+  .pen-render {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .pen-render svg { width: 100%; max-width: 420px; height: auto; }
+
+  .showcase h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    margin: 0.4rem 0 1.2rem;
+    color: var(--ink-navy);
+  }
+
+  .showcase p { max-width: 46ch; color: #4a4a46; }
+
+  /* ---------- SPECS ---------- */
+  .specs {
+    background: var(--ink-navy-deep);
+    color: var(--paper);
+    padding: 8vh 8vw;
+  }
+
+  .specs .eyebrow { color: var(--brass-light); }
+
+  .specs h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+    margin: 0.5rem 0 3rem;
+  }
+
+  .spec-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0;
+    border-top: 1px solid rgba(247,245,240,0.15);
+  }
+
+  .spec-item {
+    padding: 1.6rem 1.4rem 1.6rem 0;
+    border-bottom: 1px solid rgba(247,245,240,0.15);
+  }
+
+  .spec-item .label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--brass-light);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .spec-item .value {
+    font-family: 'Fraunces', serif;
+    font-size: 1.15rem;
+    font-weight: 400;
+  }
+
+  /* ---------- PRICING ---------- */
+  .pricing {
+    padding: 10vh 8vw;
+    text-align: center;
+    background: var(--paper-dim);
+  }
+
+  .pricing .eyebrow { display: block; margin-bottom: 1rem; }
+
+  .pricing h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(1.8rem, 3vw, 2.3rem);
+    color: var(--ink-navy);
+    margin-bottom: 0.6rem;
+  }
+
+  .pricing .price {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 2.4rem;
+    color: var(--burgundy);
+    margin: 1.2rem 0 0.4rem;
+  }
+
+  .pricing .price-sub {
+    font-size: 0.9rem;
+    color: #6a6a64;
+    margin-bottom: 2.2rem;
+  }
+
+  .btn-secondary {
+    background: var(--ink-navy);
+    color: var(--paper);
+    border: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 1rem 2.4rem;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .btn-secondary:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(27,36,48,0.28); }
+  .btn-secondary:focus-visible { outline: 3px solid var(--ink-navy); outline-offset: 3px; }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    padding: 4vh 8vw;
+    background: var(--ink-navy-deep);
+    color: var(--paper-dim);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.85rem;
+  }
+
+  footer .brand { font-family: 'Fraunces', serif; color: var(--paper); }
+
+  footer nav { display: flex; gap: 1.6rem; }
+  footer a { color: var(--brass-light); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 800px) {
+    .showcase { grid-template-columns: 1fr; }
+    .cta-row { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">The Meridian — Fountain Pen</span>
+
+    <svg class="signature-svg" viewBox="0 0 680 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Meridian, handwritten in script">
+      <path d="M20,100 L20,40 L45,90 L70,40 L70,100 M95,100 L95,40 M95,55 C110,35 140,35 140,60 C140,80 110,80 95,68 M95,68 C110,90 140,90 140,68 M235,40 L235,100 M235,40 C255,40 265,50 265,60 C265,70 255,75 235,75 M265,75 L285,100 M310,60 C310,45 325,40 335,50 C345,40 360,45 360,60 C360,75 335,90 335,90 C335,90 310,75 310,60 M390,100 L390,40 L415,90 L440,40 L440,100 M470,55 C470,45 480,40 490,40 C500,40 510,45 510,60 C510,75 500,80 490,80 C480,80 470,75 470,65 M535,40 L535,100 M535,55 C550,40 575,40 575,60 C575,75 555,75 535,65 M600,45 C600,60 620,60 620,45 C620,60 600,60 600,75 C600,90 620,90 620,75" />
+      <circle class="dot" cx="620" cy="35" r="4"/>
+    </svg>
+
+    <p class="tagline">Turned brass. A steady line. Built for the people who still write things down.</p>
+
+    <div class="cta-row">
+      <button class="btn-primary" onclick="document.getElementById('order').scrollIntoView()">Order the Meridian</button>
+      <span class="price-note">$128 · Ships in 2 days</span>
+    </div>
+  </div>
+</section>
+
+<section class="showcase">
+  <div class="pen-render">
+    <svg viewBox="0 0 420 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of the Meridian fountain pen">
+      <defs>
+        <linearGradient id="barrel" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#3a3a38"/>
+          <stop offset="50%" stop-color="#1f1f1d"/>
+          <stop offset="100%" stop-color="#3a3a38"/>
+        </linearGradient>
+        <linearGradient id="brassGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#D4B483"/>
+          <stop offset="100%" stop-color="#9C7A48"/>
+        </linearGradient>
+      </defs>
+      <rect x="30" y="58" width="300" height="24" rx="12" fill="url(#barrel)"/>
+      <rect x="300" y="58" width="70" height="24" rx="6" fill="url(#brassGrad)"/>
+      <polygon points="370,58 410,70 370,82" fill="#C9C6BC"/>
+      <rect x="55" y="52" width="10" height="36" rx="4" fill="url(#brassGrad)"/>
+      <rect x="30" y="63" width="270" height="4" fill="#4a4a48" opacity="0.4"/>
+    </svg>
+  </div>
+  <div class="showcase-copy">
+    <span class="eyebrow">The design</span>
+    <h2>One weight, evenly balanced.</h2>
+    <p>The Meridian is machined from a single billet of brass, then given a matte graphite finish so it ages instead of scratches. No cap to lose — a magnetic twist closure keeps the nib capped in your bag or on your desk. It's heavier than most pens you've held, and that's the point: the weight is what tells your hand to slow down.</p>
+  </div>
+</section>
+
+<section class="specs">
+  <span class="eyebrow">Specification</span>
+  <h2>What's inside the barrel</h2>
+  <div class="spec-grid">
+    <div class="spec-item">
+      <span class="label">Nib</span>
+      <span class="value">Stainless steel, Medium (0.7mm)</span>
+    </div>
+    <div class="spec-item">
+      <span class="label">Body</span>
+      <span class="value">Solid brass, matte graphite finish</span>
+    </div>
+    <div class="spec-item">
+      <span class="label">Fill system</span>
+      <span class="value">Standard international cartridge / converter</span>
+    </div>
+    <div class="spec-item">
+      <span class="label">Length</span>
+      <span class="value">140mm capped · 158mm posted</span>
+    </div>
+    <div class="spec-item">
+      <span class="label">Weight</span>
+      <span class="value">38g</span>
+    </div>
+    <div class="spec-item">
+      <span class="label">Closure</span>
+      <span class="value">Magnetic twist, no threads</span>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="order">
+  <span class="eyebrow">Ready when you are</span>
+  <h2>The Meridian</h2>
+  <div class="price">$128</div>
+  <p class="price-sub">Includes one ink cartridge and a cleaning cloth · Free shipping</p>
+  <button class="btn-secondary" onclick="alert('This is a demo page — no order was placed.')">Add to cart</button>
+</section>
+
+<footer>
+  <span class="brand">The Meridian</span>
+  <nav>
+    <a href="#order">Order</a>
+    <a href="mailto:hello@meridianpens.example">Contact</a>
+    <a href="#">Care guide</a>
+  </nav>
+  <span>© 2026 Meridian Pen Co.</span>
+</footer>
+
+</body>
+</html>
